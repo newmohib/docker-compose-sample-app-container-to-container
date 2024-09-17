@@ -8,8 +8,11 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
+  console.log("SERVICE_API_URL", process.env.SERVICE_API_URL);
+
   axios
-    .get("http://product-service-api:4000/users")
+    // .get("http://product-service-api:4000/users")
+    .get(`http://${process.env.SERVICE_API_URL}:4000/users`)
     .then((response) => {
       console.log(response.data);
       res.send(response.data);
