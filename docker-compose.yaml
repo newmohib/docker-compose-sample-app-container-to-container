@@ -1,19 +1,19 @@
 version: "3"
 services:
   product-service-api:
-    build: ./Docker-app-2
+    build: ./app-2
     volumes:
       - ./user/src/app
     ports:
       - 4000:4000
 
   product-service:
-    build: ./Docker-app
+    build: ./app
     volumes:
       - ./user/src/app
     ports:
       - 3000:3000
-      
+
     environment:
       - SERVICE_API_URL=${SERVICE_API_URL}
     depends_on:
