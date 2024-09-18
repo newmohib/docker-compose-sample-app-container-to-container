@@ -9,3 +9,6 @@ COPY . /user/src/app
 EXPOSE 3000
 
 CMD ["npm", "start" ]
+
+# Copy source files into application directory
+# COPY --chown=app:app . /user/src/app
